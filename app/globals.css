@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Custom styles */
+.aim-window {
+  @apply bg-aim-blue border-2 border-black shadow-aim rounded-sm;
+  font-family: 'Arial', sans-serif;
+}
+
+.aim-button {
+  @apply bg-aim-light-blue text-white px-4 py-1 border-2 border-black shadow-aim-sm hover:bg-blue-600 active:translate-y-0.5 active:shadow-none transition-all;
+}
+
+.aim-input {
+  @apply border-2 border-black px-2 py-1 focus:outline-none focus:ring-2 focus:ring-aim-yellow;
+}
+
+.aim-buddy-list {
+  @apply bg-white border-r-2 border-black overflow-y-auto;
+}
+
+.aim-chat-area {
+  @apply flex-1 flex flex-col bg-white p-4 overflow-y-auto;
+}
+
+.aim-message {
+  @apply max-w-[80%] p-2 my-1 rounded-md break-words;
+}
+
+.aim-message.user {
+  @apply bg-aim-yellow ml-auto text-right;
+}
+
+.aim-message.bot {
+  @apply bg-aim-gray mr-auto text-left;
+}
+
+.aim-typing-indicator {
+  @apply flex space-x-1 items-center p-2;
+}
+
+.aim-typing-dot {
+  @apply w-2 h-2 bg-aim-dark-gray rounded-full animate-bounce;
+}

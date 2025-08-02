@@ -16,7 +16,7 @@ const openai = new OpenAI({
   baseURL: "https://api.groq.com/openai/v1",
 });
 
-async function extractThemesFromInput(userInput: string): Promise<string[]> {
+export async function extractThemesFromInput(userInput: string): Promise<string[]> {
   const themesList = VALID_THEMES.map((t) => `- ${t}`).join("\n");
 
   const systemPrompt = `You are a music agent that matches user requests with song themes.
@@ -45,7 +45,8 @@ Return a comma-separated list of themes, and nothing else.`;
     .filter((t) => VALID_THEMES.includes(t));
 }
 
-async function runAgent(userInput: string) {
+// This function is kept for backward compatibility but is not used in the web app
+export async function runAgent(userInput: string) {
   const provider = e2b();
 
   const datasetPath = path.resolve(__dirname, "dc_dataset.py");
@@ -95,9 +96,3 @@ else:
     await provider.doKill();
   }
 }
-
-(async () => {
-  const userInput = "I love being in love, but I'm really lonely. I feel unwanted and invisible.";
-  console.log(`User Input: "${userInput}"\n`);
-  await runAgent(userInput);
-})();
